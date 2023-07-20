@@ -51,8 +51,13 @@ class _HomePageState extends State<HomePage> {
         itemCount: users.length,
         itemBuilder: (context, index) {
           final person = users[index];
-          return DetailListTile(
-            person: person,
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(person.profileImage ?? ''),
+              radius: 25, // Set the radius of the CircleAvatar
+            ),
+            title: Text(person.name ?? ''),
+            subtitle: Text(person.username ?? ''),
           );
         },
       ),
